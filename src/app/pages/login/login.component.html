@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-toolbar color="primary">LOGIN</mat-toolbar>
+  <mat-dialog-content>
+    <form [formGroup]="loginForm">
+      <div class="form-login">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            placeholder="Insira seu Email"
+          />
+          <mat-icon matSuffix>email</mat-icon>
+          @if (loginForm.controls.email.touched &&
+          loginForm.controls.email.invalid) {
+          <mat-error>
+            @if (loginForm.controls.email.errors.required) {
+            <span> Email é obrigatório</span>
+            } @if (loginForm.controls.email.errors.pattern) {
+            <span> Email inválido</span>
+            }
+          </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Insira sua Senha"
+            type="password"
+          />
+          <mat-icon matSuffix>lock</mat-icon>
+          @if (loginForm.controls.password.touched &&
+          loginForm.controls.password.invalid ) {
+          <mat-error>
+            @if ( loginForm.controls.password.errors.required) {
+            <span> Senha é obrigatória</span>
+            } @if (loginForm.controls.password.errors.minlength) {
+            <span> Senha deve ter no mínimo 5 caracteres</span>
+            } @if (loginForm.controls.password.errors.maxlength) {
+            <span> Senha deve ter no máximo 20 caracteres</span>
+            }
+          </mat-error>
+          }
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="center" style="margin-bottom: 15px">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="handleSubmit()"
+      [disabled]="!(loginForm.valid && loginForm.dirty)"
+    >
+      LOGIN
+    </button>
+  </mat-dialog-actions>
+</mat-card>

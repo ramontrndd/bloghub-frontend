@@ -5,20 +5,23 @@ import { importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { NgxUiLoaderModule, NgxUiLoaderConfig } from 'ngx-ui-loader';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
+import { provideHttpClient } from '@angular/common/http';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
-  bgsColor: '#00ff0d',
+  bgsColor: 'red',
   bgsOpacity: 0.5,
-  bgsPosition: 'top-center',
-  bgsSize: 140,
-  bgsType: 'three-strings',
-  blur: 5,
+  bgsPosition: 'bottom-right',
+  bgsSize: 60,
+  bgsType: 'ball-spin-clockwise',
+  blur: 2,
   delay: 0,
   fastFadeOut: true,
-  fgsColor: '#0013ff',
+  fgsColor: '#828282',
   fgsPosition: 'center-center',
-  fgsSize: 60,
-  fgsType: 'three-bounce',
+  fgsSize: 110,
+  fgsType: 'ball-spin-clockwise',
   gap: 24,
   logoPosition: 'center-center',
   logoSize: 120,
@@ -30,17 +33,19 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   pbDirection: 'ltr',
   pbThickness: 3,
   hasProgressBar: true,
-  text: 'Carregando',
-  textColor: '#ff0000',
+  text: 'Loading ...',
+  textColor: '#FFFFFF',
   textPosition: 'center-center',
   maxTime: -1,
   minTime: 300,
 };
 
-bootstrapApplication(AppComponent, appConfig).catch(err => console.error(err));
 bootstrapApplication(AppComponent, {
   providers: [
+    appConfig.providers,
     importProvidersFrom(NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)),
     provideAnimations(),
+    provideRouter(routes),
+    provideHttpClient(),
   ],
-});
+}).catch(err => console.error(err));

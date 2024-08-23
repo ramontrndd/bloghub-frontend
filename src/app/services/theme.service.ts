@@ -4,12 +4,11 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class ThemeService {
+  themeSignal = signal<string>('');
+
   constructor() {
     this.detectTheme();
   }
-
-  themeSignal = signal<string>('');
-
   setTheme(theme: 'light' | 'dark' | 'system') {
     this.themeSignal.set(theme);
     if (theme === 'system') {
@@ -18,7 +17,6 @@ export class ThemeService {
       this.applyTheme(theme);
     }
   }
-
   updateTheme() {
     const currentTheme = this.themeSignal();
     if (currentTheme === 'light') {
@@ -29,7 +27,6 @@ export class ThemeService {
       this.setTheme('light');
     }
   }
-
   private detectTheme() {
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     this.setTheme(prefersDarkScheme.matches ? 'dark' : 'light');
