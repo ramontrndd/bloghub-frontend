@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',

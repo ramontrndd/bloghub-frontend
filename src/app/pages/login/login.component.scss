@@ -18,3 +18,16 @@ mat-toolbar {
 .form-login {
   padding: 10px;
 }
+.btn-back {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  > mat-icon {
+    font-weight: bold;
+    padding: 20px;
+    margin-left: 5px;
+  }
+}

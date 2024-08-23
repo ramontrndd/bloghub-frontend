@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 import { ThemeService } from '../../services/theme.service';
 
@@ -22,6 +22,7 @@ import { ThemeService } from '../../services/theme.service';
     MatSelectModule,
     RouterLink,
     CommonModule,
+    RouterOutlet,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

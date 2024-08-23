@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CookieService } from 'ngx-cookie-service';
 
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { UserService } from '../../services/user.service';
 import {
@@ -21,6 +21,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -36,6 +38,9 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogModule,
     MatCardModule,
     MatInputModule,
+    RouterLink,
+    MatTooltipModule,
+    HeaderComponent,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
