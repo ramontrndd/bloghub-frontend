@@ -39,8 +39,8 @@ $semi-dark-bg-color: #333;
 $light-text-color: #cacaca;
 
 // Light theme variables
-$light-bg-color: #d2d2d2;
-$semi-light-bg-color: #c0c0c0;
+$light-bg-color: #888888;
+$semi-light-bg-color: #f8f8f8;
 $dark-text-color: #333;
 
 // Dark mode
@@ -54,4 +54,6 @@ $dark-text-color: #333;
 // Light mode
 .light {
   @include mat.all-component-themes($light-theme);
+
+  background-color: $semi-light-bg-color;
 }
