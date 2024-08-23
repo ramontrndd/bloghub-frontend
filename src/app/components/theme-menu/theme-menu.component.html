@@ -1,0 +1,22 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="themeMenu"
+  aria-label="Trocar tema"
+>
+  <mat-icon>palette</mat-icon>
+</button>
+
+<mat-menu #themeMenu="matMenu">
+  <button mat-menu-item (click)="setTheme('light')">
+    <mat-icon>light_mode</mat-icon>
+    <span>Claro</span>
+  </button>
+  <button mat-menu-item (click)="setTheme('dark')">
+    <mat-icon>dark_mode</mat-icon>
+    <span>Escuro</span>
+  </button>
+  <button mat-menu-item (click)="setTheme('system')">
+    <mat-icon>settings</mat-icon>
+    <span>Sistema</span>
+  </button>
+</mat-menu>
