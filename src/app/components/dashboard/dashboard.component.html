@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<mat-toolbar>
+  <button mat-icon-button (click)="collapsed.set(!collapsed())">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <app-theme-menu></app-theme-menu
+></mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened mode="side" [style.width]="sidenavWidth()"
+    ><app-sidenav [collapsed]="collapsed()"></app-sidenav
+  ></mat-sidenav>
+
+  <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,6 +1,6 @@
 import { SnackbarService } from './../../services/snackbar.service';
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CookieService } from 'ngx-cookie-service';
@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
   private cookieService: CookieService = inject(CookieService);
   private formBuilder: FormBuilder = inject(FormBuilder);
 
+  @HostListener('document:keydown.enter', ['handleSubmit()'])
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: [
@@ -73,7 +74,6 @@ export class LoginComponent implements OnInit {
       ],
     });
   }
-
   handleSubmit() {
     this.ngxUiLoader.start();
     const formData = this.loginForm.value;

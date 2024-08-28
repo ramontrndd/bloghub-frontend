@@ -13,10 +13,17 @@ export const routes: Routes = [
       import('./pages/login/login.component').then(m => m.LoginComponent),
   },
   {
+    path: 'bloghub',
+    loadChildren: () =>
+      import('./admin/admin-routing/admin-routing.module').then(
+        m => m.AdminRoutingModule
+      ),
+  },
+  {
     path: 'dashboard',
-    loadComponent: () =>
-      import('./components/dashboard/dashboard.component').then(
-        m => m.DashboardComponent
+    loadChildren: () =>
+      import('./admin/admin-routing/admin-routing.module').then(
+        m => m.AdminRoutingModule
       ),
   },
   {

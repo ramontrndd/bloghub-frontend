@@ -1,0 +1,37 @@
+<section class="sidenav-img">
+  <img
+    src="assets/profilepic.png"
+    alt="foto perfil"
+    [width]="profilePicSize()"
+    [height]="profilePicSize()"
+  />
+  <article class="sidenav-text" [class.hide-sidenav-text]="sideNavCollpsed()">
+    <h5>Ramon Trindade</h5>
+    <p>Blog Hub admin</p>
+  </article>
+</section>
+
+<mat-nav-list>
+  @for (item of menuItems(); track $index) {
+  <ng-container>
+    <a
+      mat-list-item
+      class="menu-item"
+      [routerLink]="item.role"
+      routerLinkActive="selected-menu-item"
+    >
+      <mat-icon>{{ item.icon }}</mat-icon>
+      @if(!sideNavCollpsed()) {
+      <span
+        matListItemTitle
+        style="
+          text-transform: uppercase;
+          font-weight: bold;
+          font-family: 'Roboto', sans-serif;
+        "
+      ></span
+      >}
+    </a>
+  </ng-container>
+  }
+</mat-nav-list>
