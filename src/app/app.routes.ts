@@ -15,16 +15,12 @@ export const routes: Routes = [
   {
     path: 'bloghub',
     loadChildren: () =>
-      import('./admin/admin-routing/admin-routing.module').then(
-        m => m.AdminRoutingModule
-      ),
+      import('./admin/admin-routing.module').then(m => m.AdminRoutingModule),
   },
   {
-    path: 'dashboard',
+    path: 'bloghub',
     loadChildren: () =>
-      import('./admin/admin-routing/admin-routing.module').then(
-        m => m.AdminRoutingModule
-      ),
+      import('./admin/admin-routing.module').then(m => m.AdminRoutingModule),
   },
   {
     path: '**',

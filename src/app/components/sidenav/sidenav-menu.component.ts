@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ThemeMenuComponent } from '../theme-menu/theme-menu.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SidenavComponent } from '../sidenav/sidenav.component';
+import { SidenavComponent } from './sidenav.component';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -21,10 +21,10 @@ import { RouterOutlet } from '@angular/router';
     SidenavComponent,
     RouterOutlet,
   ],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  templateUrl: './sidenav-menu.component.html',
+  styleUrl: './sidenav-menu.component.scss',
 })
-export class DashboardComponent {
+export class SideNavMenuComponent {
   collapsed = signal(false);
   sidenavWidth = computed(() => (this.collapsed() ? '65px' : '250px'));
 }

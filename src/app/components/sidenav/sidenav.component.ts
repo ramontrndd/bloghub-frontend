@@ -44,8 +44,8 @@ export class SidenavComponent {
     },
     {
       icon: 'app_registration',
-      state: 'Posts',
-      route: 'article',
+      state: 'articles',
+      route: 'posts',
       role: '',
     },
     {
