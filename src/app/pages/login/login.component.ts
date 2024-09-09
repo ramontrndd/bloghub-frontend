@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         this.ngxUiLoader.stop();
         this.cookieService.set('token', response.token);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/bloghub']);
         this.snackBarService.openSnackBar(response.message, 'success');
       },
       error => {
