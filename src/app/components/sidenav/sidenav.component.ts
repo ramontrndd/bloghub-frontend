@@ -1,14 +1,22 @@
 import { Component, computed, Input, signal } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { MenuItem } from '../../../shared/Model/MenuItem';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [MatSidenavModule, MatListModule, RouterLink, MatIconModule],
+  imports: [
+    MatSidenavModule,
+    MatListModule,
+    RouterLink,
+    MatIconModule,
+    CommonModule,
+    RouterModule,
+  ],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss',
 })
@@ -24,8 +32,26 @@ export class SidenavComponent {
   menuItems = signal<MenuItem>([
     {
       icon: 'dashboard',
-      state: 'DashBoard',
+      state: 'Dashboard',
       route: 'dashboard',
+      role: '',
+    },
+    {
+      icon: 'category',
+      state: 'Category',
+      route: 'category',
+      role: '',
+    },
+    {
+      icon: 'app_registration',
+      state: 'Posts',
+      route: 'article',
+      role: '',
+    },
+    {
+      icon: 'people',
+      state: 'Users',
+      route: 'users',
       role: '',
     },
   ]);

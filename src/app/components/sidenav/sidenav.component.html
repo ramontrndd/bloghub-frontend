@@ -13,25 +13,21 @@
 
 <mat-nav-list>
   @for (item of menuItems(); track $index) {
-  <ng-container>
-    <a
-      mat-list-item
-      class="menu-item"
-      [routerLink]="item.role"
-      routerLinkActive="selected-menu-item"
-    >
-      <mat-icon>{{ item.icon }}</mat-icon>
-      @if(!sideNavCollpsed()) {
-      <span
-        matListItemTitle
-        style="
-          text-transform: uppercase;
-          font-weight: bold;
-          font-family: 'Roboto', sans-serif;
-        "
-      ></span
-      >}
-    </a>
-  </ng-container>
+
+  <a
+    class="menu-item"
+    mat-list-item
+    [routerLink]="item.route"
+    routerLinkActive="selected-menu-item"
+    #rla="routerLinkActive"
+    [activated]="rla.isActive"
+  >
+    <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+
+    @if(!sideNavCollpsed()) {
+    <span matListItemTitle>{{ item.state }}</span
+    >}
+  </a>
+
   }
 </mat-nav-list>

@@ -24,10 +24,14 @@ section {
   overflow: hidden;
 }
 .menu-item {
-  border-left: 5px solid;
   border-left-color: rgba(0, 0, 0, 0);
 }
 .selected-menu-item {
-  border-left-color: red;
-  background: rgb(0, 0, 0, 0.5);
+  border-left: 5px solid;
+  background: rgba(0, 0, 0, 0.05);
+}
+span {
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
