@@ -45,7 +45,7 @@ export class RouteguardService {
         GlobalConstants.error
       );
 
-      this.router.navigate(['/']);
+      this.router.navigate(['/bloghub/dashboard']);
       return false;
     } else {
       this.router.navigate(['/']);

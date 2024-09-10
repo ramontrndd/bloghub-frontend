@@ -7,7 +7,13 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { NgxUiLoaderModule, NgxUiLoaderConfig } from 'ngx-ui-loader';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptors,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import { tokenInterceptorInterceptor } from './app/services/token-interceptor.interceptor';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: 'red',
@@ -46,6 +52,11 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)),
     provideAnimations(),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: tokenInterceptorInterceptor,
+      multi: true,
+    },
   ],
 }).catch(err => console.error(err));
