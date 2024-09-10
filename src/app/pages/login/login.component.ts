@@ -56,9 +56,21 @@ export class LoginComponent implements OnInit {
   private userApp: UserService = inject(UserService);
   private cookieService: CookieService = inject(CookieService);
   private formBuilder: FormBuilder = inject(FormBuilder);
+  private route: Router = inject(Router);
+  private snackbarService: SnackbarService = inject(SnackbarService);
 
   @HostListener('document:keydown.enter', ['handleSubmit()'])
   ngOnInit(): void {
+    if (this.cookieService.get('token') != 'null') {
+      this.userService.checkToken().subscribe(
+        (response: any) => {
+          this.route.navigate(['/bloghub/dashboard']);
+          this.snackbarService.openSnackBar('Welcome back!', 'success');
+        },
+        (error: any) => {}
+      );
+    }
+
     this.loginForm = this.formBuilder.group({
       email: [
         null,

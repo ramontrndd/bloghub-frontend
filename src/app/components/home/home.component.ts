@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 import { HeaderComponent } from '../header/header.component';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { HeaderComponent } from '../header/header.component';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  ngxUiLoader: NgxUiLoaderService = inject(NgxUiLoaderService);
+  private ngxUiLoader: NgxUiLoaderService = inject(NgxUiLoaderService);
 
   showLoader() {
     this.ngxUiLoader.start();
